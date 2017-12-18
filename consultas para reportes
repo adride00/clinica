@@ -1,0 +1,20 @@
+consultas para reportes
+
+
+dias que aparece el producto 7 en el mes 9
+select count(day(fecha)) from movimiento where id_producto = 7 and month(fecha) = 9
+
+
+
+
+existencias actuales y el total de entradas totales en x fecha y dias cubiertos
+ 
+select s.existencia,sum(m.cantidad), count(day(m.fecha))
+
+from stock as s
+
+join movimiento as m
+
+on s.id_producto = m.id_producto
+
+where m.tipo = 'salida' and m.id_producto = 7 and month(fecha) = 9
