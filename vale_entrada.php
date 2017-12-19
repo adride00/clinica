@@ -145,47 +145,7 @@
         }
       </script>
       <script>
-          $(document)sabled", true);
-              $('td input').keyup(function(){
-              var selec = $(this).attr('id');
-              var consulta = $(' #'+selec).val();
-              
-              //var codigo = $('#desc').text();
-              
-              envio(selec,consulta);
-
-              function envio(selec,consulta){
-
-                $.ajax({
-                              type: "POST",
-                              url: "validarStock.php",
-                              data: "b="+consulta+"&c="+selec,
-                              dataType: "html",
-                              error: function(){
-                                    alert("error petición ajax");
-                              },
-                              success: function(data){                                                      
-                                    $("#resultado").html(data);
-                                    if(data === 'Stock insuficiente'){
-                                       $('button').attr("disabled", true);
-                                    }else{
-                                       $('button').attr("disabled", false);
-                                    }
           
-                              }
-                  });
-
-
-
-
-              }
-
-            
-
-            
-           });
-           
-          });
 
       </script>
 
@@ -206,26 +166,5 @@
 
 
 
-/*
- include("conectar.php");
-  if($_POST){
-  $fecha_entrada = $_POST["fecha_entrada"];
-  $cantidad = $_POST["cantidad"];
-  $fecha_vencimiento = $_POST["fecha_vencimiento"];
-  $nombre_articulo = $_POST["codigo_art"];
-  $sql_select = "SELECT id_producto,descripcion FROM articulo WHERE descripcion = '$nombre_articulo'";
-  $consulta_select = mysqli_query($link, $sql_select);
 
-  $fila = mysqli_fetch_array($consulta_select);  
-  echo $fila[0];
-  $sql_insert = "INSERT INTO entradas(id_producto,fecha_entrada,cantidad,fecha_vencimiento) 
-  VALUES('$fila[0]','$fecha_entrada','$cantidad','$fecha_vencimiento')";
-  $consulta = mysqli_query($link, $sql_insert); 
-  
-  $sql_update = "UPDATE articulo SET stock_actual = stock_actual+'$cantidad' WHERE id_producto = '$fila[0]'";
-  $consulta_update = mysqli_query($link,$sql_update);
-  mysqli_close($link); //cerramos conexion con la base de datos
-  die();
-  }
-*/
   ?>
