@@ -19,7 +19,7 @@ Panel de control<span class="sr-only">(current)</span></a></li>
             <li><a href="#">Reportes</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="">Consumo mensual</a></li>
+            <li><a href="reporte_mensual.php">Consumo mensual</a></li>
             
           </ul>
           
