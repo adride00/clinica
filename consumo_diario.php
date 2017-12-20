@@ -152,7 +152,7 @@
               var consulta = $(' #'+selec).val();
               
               //var codigo = $('#desc').text();
-              
+              //select a.codigo, a.descripcion, s.existencia, sum(m.cantidad), count(DISTINCT(day(m.fecha))) FROM articulo as a JOIN movimiento as m ON a.id_producto = m.id_producto JOIN stock as s ON s.id_producto = m.id_producto WHERE m.tipo = 'Consumo diario' and date(fecha) BETWEEN '2017-09-01' and '2017-09-30' group by a.descripcion
               envio(selec,consulta);
 
               function envio(selec,consulta){
@@ -169,8 +169,19 @@
                                     $("#resultado").html(data);
                                     if(data === 'Stock insuficiente'){
                                        $('button').attr("disabled", true);
+                                       $('button').css("background-color", "red");
+                                       
+                                       swal({
+                                            title: 'No tiene suficientes existencias',
+                                            html: $('<div>')
+                                              .addClass('some-class')
+                                              .text(''),
+                                            animation: false,
+                                            customClass: 'animated tada'
+                                          });
                                     }else{
                                        $('button').attr("disabled", false);
+                                       $('button').css("background-color", "skyblue");
                                     }
           
                               }
