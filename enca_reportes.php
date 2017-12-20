@@ -1,7 +1,7 @@
 <?php 
 	include("validar.php");
 	include("cabecera.php");	
-
+	
  ?>
 
   <body>
@@ -13,43 +13,18 @@
            ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           
+			
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="card" style="width: 20rem;">
-					  <a href="enca_reportes.php"><img class="card-img-top" src="img/lista.png" alt="Card image cap"></a>
+					  <a href="consumo_diario.php"><img class="card-img-top" src="img/icon.png" alt=""></a>
 					  <div class="card-body">
-					    <p class="card-text">Reportes Movimientos</p>
+					    <p class="card-text">Reportes Consumo</p>
 					  </div>
 					</div>
 				</div>
+			<!--
 				<div class="col-sm-4">
-					<div class="card" style="width: 20rem;">
-					  <a href="usuarios.php"><img class="card-img-top" src="img/usuario.png" alt="Card image cap"></a>
-					  <div class="card-body">
-					    <p class="card-text">Administrar Usuarios</p>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="card" style="width: 20rem;">
-					  <a href="registro_articulos.php"><img class="card-img-top" src="img/producto.png" alt="Card image cap"></a>
-					  <div class="card-body">
-					    <p class="card-text">Registro Producto</p>
-					  </div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<!--<div class="col-sm-4">
-					<div class="card" style="width: 20rem;">
-					  <a href="consumo.php"><img class="card-img-top" src="img/salida-diaria.png" alt="Card image cap"></a>
-					  <div class="card-body">
-					    <p class="card-text">Salidas diarias</p>
-					  </div>
-					</div>
-				</div>
-			-->
-				<!--<div class="col-sm-4">
 					<div class="card" style="width: 20rem;">
 					  <a href=""><img class="card-img-top" src="img/archivo.png" alt="Card image cap"></a>
 					  <div class="card-body">
@@ -57,44 +32,27 @@
 					  </div>
 					</div>
 				</div>
-
+      -->
 				<div class="col-sm-4">
 					<div class="card" style="width: 20rem;">
-					  <a href="entradas.php"><img class="card-img-top" src="img/entrada.png" alt="Card image cap"></a>
+					  <a href="vale_entrada.php"><img class="card-img-top" src="img/camion-de-reparto.png" alt="Card image cap"></a>
 					  <div class="card-body">
-					    <p class="card-text">Entrada Articulo</p>
-					  </div>
-					</div>
-				</div>
-			</div>
-			<--></-->
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="card" style="width: 20rem;">
-					  <a href="registro_eco.php"><img class="card-img-top" src="img/hospital.png" alt="Card image cap"></a>
-					  <div class="card-body">
-					    <p class="card-text">ECOSF</p>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="card" style="width: 20rem;">
-					  <a href="enca_mov.php"><img class="card-img-top" src="img/movimientos.png" alt="Card image cap"></a>
-					  <div class="card-body">
-					    <p class="card-text">Movimientos</p>
+					    <p class="card-text">Reportes Envios</p>
 					  </div>
 					</div>
 				</div>
 
-				<div class="col-sm-4">
-					<div class="card" style="width: 20rem;">
-					  <a href="ajuste.php"><img class="card-img-top" src="img/cuenta-atras.png" alt="Card image cap"></a>
-					  <div class="card-body">
-					    <p class="card-text">Ajuste de Inventario</p>
-					  </div>
-					</div>
-				</div>
+        <div class="col-sm-4">
+          <div class="card" style="width: 20rem;">
+            <a href="vale_de_medicamentos.php"><img class="card-img-top" src="img/bandeja-de-entrada.png" alt="Card image cap"></a>
+            <div class="card-body">
+              <p class="card-text">Reportes Entradas</p>
+            </div>
+          </div>
+        </div>
 			</div>
+			
+			
             
               
                   
