@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="card" style="width: 20rem;">
-					  <a href="consumo_diario.php"><img class="card-img-top" src="img/icon.png" alt=""></a>
+					  <a href="reportes_consumo.php"><img class="card-img-top" src="img/icon.png" alt=""></a>
 					  <div class="card-body">
 					    <p class="card-text">Reportes Consumo</p>
 					  </div>
