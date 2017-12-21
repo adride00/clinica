@@ -14,7 +14,7 @@
 <script type="text/javascript" src="DataTables/Data/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="DataTables/Data/js/dataTables.bootstrap.js"></script>
 <link rel="stylesheet" href="DataTables/Data/css/jquery.dataTables.min.css">
-
+<script src="js/plugins/dataTables/datatables.min.js"></script>
 <script src="DataTables/Data/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -26,6 +26,7 @@
 </a>
     <div class="row">
       <table class="table table-hover dataTables-example" id="myTable">
+                <thead>
                 <tr class="thead">
                   
                   <th >
@@ -41,7 +42,11 @@
                   <th>
                     Tipo Movimiento
                   </th>
+                  <th>
+                    Accion
+                  </th>
                 </tr>
+                </thead>
                 <?php 
                   include("conectar.php");
 
@@ -51,16 +56,33 @@
                   
                   while($mostrar=mysqli_fetch_array($result)){ 
                  ?>
-                 <tr>
-                    <td><?php echo $mostrar['numPed'] ?></td>
-                    <td><?php echo $mostrar['fecha'] ?></td>
-                    <td><?php echo $mostrar['nombre'] ?></td>
-                    <td><?php echo $mostrar['tipo'] ?></td>
+                 
                     
-                      
-                    <td><button id="<?php echo $mostrar['numPed'] ?>" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Ver</button></td>
                     
-                 </tr>
+                   
+                    
+                    
+                     <?php 
+
+                        echo '<tr>';
+
+                        echo "<td>".$mostrar['numPed']."</td>";
+
+                        echo "<td>".$mostrar['fecha']."</td>";
+
+                        echo "<td>".$mostrar['nombre']."</td>";
+
+                        echo "<td>".$mostrar['tipo']."</td>";  
+
+                        echo '
+                            <td><button id="'.$mostrar['numPed'].'" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Ver</button></td>
+
+                        ';
+                      echo '</tr>';
+                      ?> 
+                    
+                    
+                 
                   
                  <?php 
 
@@ -118,7 +140,7 @@
     <script src="js/frm_RegInsumos.js"></script>
     
 
-//
+
   <script src="js/typeahead.min.js"></script>  
 
   <script>
@@ -140,35 +162,43 @@
 
           }
   </script>
-  <script>
-      $(document).ready(function() {
+  <script src="js/plugins/dataTables/datatables.min.js"></script>
+ 
 
-      $('#myTable').dataTable({
 
-        "bProcessing": true,
+<!-- Script para controlar funciones de la tabla -->
+    <script>
+        $(document).ready(function(){
+            $('#myTable').DataTable({
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
 
-        "sAjaxSource": "pro.php",
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
 
-        "aoColumns": [
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
 
-              { mData: 'id' } ,
+            });
 
-              { mData: 'name' },
+        });
 
-              { mData: 'email' }
-
-            ]
-
-      });  
-
-  });
+    </script>
 
   </script>
   </body>
  </html>
 
- <?php 
-
  
-
-  ?>
