@@ -133,39 +133,7 @@
 
         });
   </script>
-  <script>
-      $(document).ready(function(){
- 
- $('#codigo_art').typeahead({
-  source: function(query, result)
-  {
-   $.ajax({
-    url:"ajax.php",
-    method:"POST",
-    data:{query:query},
-    dataType:"json",
-    success:function(data)
-    {
-     result($.map(data, function(item){
-      return item;
-     }));
-    }
-   })
-  }
- });
- 
-});
-
-      /*$(document).ready(function(){
-        $('#codigo_articulo').keyup(function(){
-          var name = $(this).val();
-          $.post('ajax.php', {name:name, cache:false}, function(data){
-              $('div#display').css({'display': 'block'});
-              $('div#display').html(data);
-          });
-        });
-      }); */
-    </script>
+  
     <script>
        $(document).ready(function(){
 
@@ -179,7 +147,7 @@
             var descripcion = $(selDesc).text();
             var cantidad = $(selCant).val()
             var codigo = $(selCode).text()
-            
+            $(this).hide();
               
             if(cantidad){
               
@@ -287,34 +255,4 @@
   </body>
  </html>
 
- <?php 
-
-
-
-
-
-
-
-/*
- include("conectar.php");
-  if($_POST){
-  $fecha_entrada = $_POST["fecha_entrada"];
-  $cantidad = $_POST["cantidad"];
-  $fecha_vencimiento = $_POST["fecha_vencimiento"];
-  $nombre_articulo = $_POST["codigo_art"];
-  $sql_select = "SELECT id_producto,descripcion FROM articulo WHERE descripcion = '$nombre_articulo'";
-  $consulta_select = mysqli_query($link, $sql_select);
-
-  $fila = mysqli_fetch_array($consulta_select);  
-  echo $fila[0];
-  $sql_insert = "INSERT INTO entradas(id_producto,fecha_entrada,cantidad,fecha_vencimiento) 
-  VALUES('$fila[0]','$fecha_entrada','$cantidad','$fecha_vencimiento')";
-  $consulta = mysqli_query($link, $sql_insert); 
-  
-  $sql_update = "UPDATE articulo SET stock_actual = stock_actual+'$cantidad' WHERE id_producto = '$fila[0]'";
-  $consulta_update = mysqli_query($link,$sql_update);
-  mysqli_close($link); //cerramos conexion con la base de datos
-  die();
-  }
-*/
-  ?>
+ 

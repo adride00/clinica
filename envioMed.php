@@ -14,7 +14,7 @@
 
 
 
-	if($row[0]){
+	if($row[0]==$d){
 
 		    $sql_carritoE = "SELECT cantidad FROM carrito WHERE descripcion = '$d'";
 			$consultaE = mysqli_query($link,$sql_carritoE);
