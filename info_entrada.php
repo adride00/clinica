@@ -26,7 +26,8 @@
            <center> <h4 class="control-label">Datos de envio</h4></center>
              <div class="row">
                <div class="col-sm-6">
-                 Fecha: <input id="fecha" type="date"><br>
+                 Fecha: <input autocomplete="off" type="text" class=" form-control datepicker" data-date-format="yyyy-mm-dd" name="fecha1" id="fecha1"
+                         placeholder="Introduce fecha"><br>
                </div>
                <div class="col-sm-6">
                  No Documento: <input id="numPed" type="text">
@@ -61,7 +62,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="js/frm_RegInsumos.js"></script>
-    
+    <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/typeahead.min.js"></script>  
   <script>
       $(document).ready(function(){
@@ -129,6 +130,27 @@
         }
 
    </script>
+   <script>
+  $(function(){
+      $.fn.datepicker.dates['es'] = {
+                days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+                daysShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
+                daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"],
+                months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+                monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
+        };
+      window.prettyPrint && prettyPrint();
+      $('#fecha1').datepicker({
+        format: 'yyyy-mm-dd',
+        language:'es',
+
+      });
+      $('#fecha2').datepicker({
+        format: 'yyyy-mm-dd',
+        language:'es',
+        });
+    });
+  </script>
   </body>
  </html>
 
