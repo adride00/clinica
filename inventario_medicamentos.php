@@ -4,19 +4,25 @@
   include("nav-menu.php");  
   include("aside-menu.php");
 ?>
-
+<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+  <script type="text/javascript" src="DataTables/datatables.js"></script> 
+<script type="text/javascript" src="DataTables/Data/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="DataTables/Data/js/dataTables.bootstrap.js"></script>
+<link rel="stylesheet" href="DataTables/Data/css/jquery.dataTables.min.css">
+<script src="js/plugins/dataTables/datatables.min.js"></script>
+<script src="DataTables/Data/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="DataTables/datatables.min.js"></script>
   
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     
 
         <div class="panel panel-info">
-    <div class="panel-heading">
-      <h4><i class='glyphicon glyphicon-edit'></i> Inventario Medicamentos</h4>
-    </div>
+    
 
-      <div class="row">
-      <table class="table table-hover ">
-                <tr class="thead">
+      
+      <table class="table table-hover" id="myTable">
+                <thead>
+                <tr>
                   
                   
                   
@@ -28,6 +34,7 @@
                   </th>
                  
                 </tr>
+                </thead>
                 <?php 
                   include("conectar.php");
 
@@ -56,7 +63,7 @@
                   }
                   ?>
               </table>
-    </div>
+    
 
 
       </div>
@@ -99,6 +106,40 @@
           });
         });
       }); */
+    </script>
+    <script src="js/plugins/dataTables/datatables.min.js"></script>
+ 
+
+
+<!-- Script para controlar funciones de la tabla -->
+    <script>
+        $(document).ready(function(){
+            $('#myTable').DataTable({
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+
+        });
+
     </script>
   </body>
  </html>
