@@ -5,7 +5,9 @@
   include("aside-menu.php");
 ?>
 <script src="js/jquery-3.2.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
   
+
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
  
   
@@ -17,23 +19,68 @@
     <div class="theme-showcase" role="main">
 
       <div class="jumbotron">
-        <div class="row">
-          <div class="col-sm-6">
-            <input type="text" size="30px" id="busqueda" name="busqueda" placeholder="Buscar...">
-          </div>
-          <div class="col-sm-6">
-            
-          </div>
-        </div>
+        
 
         <form method="GET" role="form" id="formulario" name="formulario">
           <fieldset>
            <center> <h4 class="control-label">Seleccione medicamentos</h4></center>
 
+            <table class="table table-hover" id="myTable">
+              <thead>
+                <tr>
+                  <th>
+                    Codigo
+                  </th>
+                  <th>
+                    Descripcion
+                  </th>
+                  <th>
+                    Existencia
+                  </th>
+                  <th>
+                    Cantidad
+                  </th>
+                  <th>
+                    Agregar
+                  </th>
+                </tr>
+              </thead>
+              <?php 
+                include("conectar.php");
+                $sql = "SELECT a.id_producto, a.codigo, a.descripcion, s.existencia FROM articulo as a JOIN stock as s ON a.id_producto = s.id_producto";
+                $result = mysqli_query($link,$sql);
+                while ($row=mysqli_fetch_array($result)) {
+                  
+                
+               ?>
+                
+                  <?php echo '<tr id="'.$row["id_producto"].'">'; ?>
+                    <td id="code">
+                      <?php echo $row['codigo'] ?>
+                    </td>
+                    <td id="desc">
+                      <?php echo $row['descripcion'] ?>
+                    </td>
+                    <td>
+                      <?php echo $row['existencia'] ?>
+                    </td>
+                    <td>
+                      <?php echo '<input id="'.$row['codigo'].'" class="'.$row["id_producto"].'" type="text" size="5px">'; ?>
+                    </td>
+                    <td>
+                      <?php echo '<button class="btn-success btn btn-info btn-md" id="'.$row["id_producto"].'"><i class="fa fa-plus" aria-hidden="true"></i></button>'; ?>
+                    </td>
+                  </tr>
+                
+
+                <?php 
+
+              }
+
+                 ?>
+
+            </table>
             
-            <section class="row" id="tabla_resultado">
-            
-          </section>
             
             <div class="row">
               <div class="col-sm-6">
@@ -55,7 +102,37 @@
     <script src="js/jquery.validate.js"></script>
     <script src="js/frm_RegInsumos.js"></script>
     <script src="peticion.js"></script>
+    <script src="js/plugins/dataTables/datatables.min.js"></script>
+    
   <script src="js/typeahead.min.js"></script>  
+  <script>
+    $(document).ready(function(){
+            $('#myTable').DataTable({
+                pageLength: 10,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+
+        });
+  </script>
   <script>
       $(document).ready(function(){
  
