@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
+<<<<<<< HEAD
 -- Generation Time: Dec 21, 2017 at 09:38 PM
+=======
+-- Generation Time: Dec 21, 2017 at 09:35 PM
+>>>>>>> test
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.19-1
 

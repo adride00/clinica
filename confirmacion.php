@@ -5,7 +5,7 @@
   include("aside-menu.php");
 ?>
 <script src="js/jquery-3.2.1.min.js"></script>
-  
+<link rel="stylesheet" href="DataTables/Data/css/jquery.dataTables.min.css">  
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
  
   
@@ -22,22 +22,25 @@
           $row = mysqli_fetch_array($result); 
 
          ?>
-         <div class="row">
-           <div class="col-sm-6">
-             <label for="">Fecha: <span><?php echo $row['fecha']; ?></span></label>
-           </div>
-           <div class="col-sm-6">
-             <label for="">Numero Requicision: <span id="numReq"><?php echo $row['numPed']; ?></span></label>
-           </div>
-         </div>
-         <div class="row">
-           <div class="col-sm-6">
-             <label for="">Establecimiento de Salud (ecof): <span><?php echo $row['eco']; ?></span></label>
-           </div>
-           <div class="col-sm-6">
-             <label for="">Encargado: <span><?php echo $_SESSION["nombre"]; ?></span></label>
-           </div>
-         </div>
+         <table class="table table-bordered">
+           <tr>
+             <td>
+               Fecha: <?php echo $row['fecha']; ?>
+             </td>
+             <td>
+               Numero Documento: <?php echo $row['numPed']; ?>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               Responsable: <?php echo $_SESSION["nombre"]; ?>
+             </td>
+             <td>
+               Establecimiento de salud: <?php echo $row['eco']; ?>
+             </td>
+           </tr>
+         </table>
+          
         
       <div class="jumbotron">
         <div class="row">
@@ -80,7 +83,37 @@
     <script src="js/jquery.validate.js"></script>
     <script src="js/frm_RegInsumos.js"></script>
     <script src="js/peticionconf.js"></script>
-  <script src="js/typeahead.min.js"></script>  
+    <script src="js/plugins/dataTables/datatables.min.js"></script>
+  <script src="js/typeahead.min.js"></script> 
+  <script>
+        $(document).ready(function(){
+            $('#myTable').DataTable({
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+
+        });
+
+    </script> 
   <script>
       $(document).ready(function(){
  

@@ -30,30 +30,32 @@ $buscarA=$conexion->query($query);
 if ($buscarA->num_rows > 0)
 {
 	$tabla.= 
-	'<table class="table" id="ini">
+	'<table class="table" id="myTable">
+	<thead>
 		<tr class="bg-primary">
 			
 			<td>Codigo</td>
 			<td>Descripcion</td>
 			<td>Cantidad</td>
-			
+			<td>Borrar</td>
+			</thead>
 		</tr>';
 
 	while($filaA= $buscarA->fetch_assoc())
 	{
 		$tabla.=
 		'
-		<tbody id="tbody">
-		<tr class="envio" id="'.$filaA["id_carrito"].'">
+		
+		<tr class="envio" id='.$filaA["id_carrito"].'>
 			
 			<td id="code" name="codigo[]"">'.$filaA['codigo'].'</td>
 			<td id="desc" name="descripcion[]">'.$filaA['descripcion'].'</td>
 			<td id="cant" name="cantidad[]">'.$filaA['cantidad'].'</td>
 			
-			<td><button class="btn-success btn btn-info btn-md" id="'.$filaA["id_carrito"].'"><i class="fa fa-trash" aria-hidden="true"></i>
+			<td><button class="btn-success btn btn-info btn-md" id='.$filaA["id_carrito"].'><i class="fa fa-trash" aria-hidden="true"></i>
 </button></td>
 		 </tr>
-		 </tbody>
+		 
 		';
 		
 	}
