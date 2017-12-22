@@ -15,47 +15,24 @@
           
 			
 			<div class="row">
-				<div class="col-sm-4">
-					<div class="card" style="width: 20rem;">
-					  <a href="consumo_diario.php"><img class="card-img-top" src="img/salida-diaria.png" alt="Card image cap"></a>
-					  <div class="card-body">
-					    <p class="card-text">Salidas diarias</p>
-					  </div>
-					</div>
-				</div>
-			<!--
-				<div class="col-sm-4">
-					<div class="card" style="width: 20rem;">
-					  <a href=""><img class="card-img-top" src="img/archivo.png" alt="Card image cap"></a>
-					  <div class="card-body">
-					    <p class="card-text">Estado Medicamentos</p>
-					  </div>
-					</div>
-				</div>
-      -->
-				<div class="col-sm-4">
-					<div class="card" style="width: 20rem;">
-					  <a href="vale_entrada.php"><img class="card-img-top" src="img/entrada.png" alt="Card image cap"></a>
-					  <div class="card-body">
-					    <p class="card-text">Entrada Articulo</p>
-					  </div>
-					</div>
-				</div>
+				
+			
+
+        
 
         <div class="col-sm-4">
           <div class="card" style="width: 20rem;">
-            <a href="vale_de_medicamentos.php"><img class="card-img-top" src="img/factura.png" alt="Card image cap"></a>
+            <a href="vale_de_medicamentos.php"><img class="card-img-top" src="img/deteriorado.png" alt="Card image cap"></a>
             <div class="card-body">
-              <p class="card-text">Requisicion de medicamentos</p>
+              <p class="card-text">Medicamento Deteriorado</p>
             </div>
           </div>
         </div>
-
         <div class="col-sm-4">
           <div class="card" style="width: 20rem;">
-            <a href="menu_estado.php"><img class="card-img-top" src="img/medicina.png" alt="Card image cap"></a>
+            <a href="vale_vencido.php"><img class="card-img-top" src="img/pastillas.png" alt="Card image cap"></a>
             <div class="card-body">
-              <p class="card-text">Estado Medicamento</p>
+              <p class="card-text">Medicamento Vencido</p>
             </div>
           </div>
         </div>
