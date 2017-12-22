@@ -52,28 +52,28 @@
                 while ($row=mysqli_fetch_array($result)) {
                   
                 
-               ?>
+               
                 
-                  <?php echo '<tr id="'.$row["id_producto"].'">'; ?>
-                    <td id="code">
-                      <?php echo $row['codigo']; ?>
-                    </td>
-                    <td id="desc">
-                      <?php echo $row['descripcion']; ?>
+                  
+
+                echo '
+                  <tr id='.$row["id_producto"].'>
+                    <td id="code">'.$row['codigo'].'</td>
+                    <td id="desc">'.$row['descripcion'].'</td>
+                    <td>'.$row['existencia'].'</td>
+                    <td>
+                      <input id='.$row['codigo'].' class='.$row["id_producto"].' type="text" size="5px"> 
                     </td>
                     <td>
-                      <?php echo $row['existencia']; ?>
-                    </td>
-                    <td>
-                      <?php echo '<input id="'.$row['codigo'].'" class="'.$row["id_producto"].'" type="text" size="5px">'; ?>
-                    </td>
-                    <td>
-                      <?php echo '<button class="btn-success btn btn-info btn-md" id="'.$row["id_producto"].'"><i class="fa fa-plus" aria-hidden="true"></i></button>'; ?>
+                      <button class="btn-success btn btn-info btn-md" id='.$row["id_producto"].'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     </td>
                   </tr>
-                
 
-                <?php 
+
+
+
+                ';
+                
 
               }
 
