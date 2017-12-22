@@ -22,7 +22,7 @@
 
         <div class="col-sm-4">
           <div class="card" style="width: 20rem;">
-            <a href="vale_de_medicamentos.php"><img class="card-img-top" src="img/deteriorado.png" alt="Card image cap"></a>
+            <a href="vale_deteriorado.php"><img class="card-img-top" src="img/deteriorado.png" alt="Card image cap"></a>
             <div class="card-body">
               <p class="card-text">Medicamento Deteriorado</p>
             </div>
