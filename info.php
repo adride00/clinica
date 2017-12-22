@@ -41,21 +41,20 @@
              
             
                        
-            <div class="row">
-              <div class="col-sm-6">
-                <a href="vale_de_medicamentos.php">Atras</a>
-              </div>
-              <div class="col-sm-6">
-                <a id="siguiente" href="confirmacion.php">Siguiente</a>
-              </div>
-            </div>
+            
 
     
               
           </fieldset>
       </form>
+      <nav aria-label="...">
+  
     </div>
-    
+    <ul class="pager">
+    <li class="previous"><a style="background-color: skyblue" class="btn-info" href="vale_de_medicamentos.php"><span aria-hidden="true">&larr;</span>Atras</a></li>
+    <li class="next"><a style="background-color: skyblue" class="btn-info" id="siguiente" href="confirmacion.php">Siguiente<span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</nav>
     </div> 
          </div> 
      <script src="js/jquery-3.2.1.min.js"></script>

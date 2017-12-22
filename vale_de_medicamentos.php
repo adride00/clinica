@@ -82,12 +82,12 @@
             </table>
             
             
-            <div class="row">
-              <div class="col-sm-6">
-                <a href="info.php">Siguiente</a>
-              </div>
+            <nav aria-label="...">
+            <ul class="pager">
               
-            </div>
+              <li class="next"><a style="background-color: skyblue" class="btn-info" href="info.php">Siguiente<span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
+          </nav>
 
     
               
