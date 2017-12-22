@@ -26,7 +26,7 @@
            <center> <h4 class="control-label">Datos de envio</h4></center>
              <div class="row">
                <div class="col-sm-6">
-                 Fecha: <input autocomplete="off" type="text" class=" form-control datepicker" data-date-format="yyyy-mm-dd" name="fecha1" id="fecha1"
+                 Fecha: <input autocomplete="off" type="text" class=" form-control datepicker" data-date-format="yyyy-mm-dd" name="fecha1" id="fecha"
                          placeholder="Introduce fecha"><br>
                </div>
                <div class="col-sm-6">
@@ -121,7 +121,13 @@
             data:cadena,
             succes:function(r){
               if(r==1){
-                alert("Agregado");
+                  swal({
+                    position: 'top-center',
+                    type: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
               }else{
                 aler("no se agrego");
               }
@@ -140,7 +146,7 @@
                 monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
         };
       window.prettyPrint && prettyPrint();
-      $('#fecha1').datepicker({
+      $('#fecha').datepicker({
         format: 'yyyy-mm-dd',
         language:'es',
 

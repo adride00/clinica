@@ -56,13 +56,13 @@
                 
                   <?php echo '<tr id="'.$row["id_producto"].'">'; ?>
                     <td id="code">
-                      <?php echo $row['codigo'] ?>
+                      <?php echo $row['codigo']; ?>
                     </td>
                     <td id="desc">
-                      <?php echo $row['descripcion'] ?>
+                      <?php echo $row['descripcion']; ?>
                     </td>
                     <td>
-                      <?php echo $row['existencia'] ?>
+                      <?php echo $row['existencia']; ?>
                     </td>
                     <td>
                       <?php echo '<input id="'.$row['codigo'].'" class="'.$row["id_producto"].'" type="text" size="5px">'; ?>
@@ -147,7 +147,7 @@
             var descripcion = $(selDesc).text();
             var cantidad = $(selCant).val()
             var codigo = $(selCode).text()
-            $(this).hide();
+            
               
             if(cantidad){
               

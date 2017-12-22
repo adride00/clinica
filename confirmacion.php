@@ -22,22 +22,25 @@
           $row = mysqli_fetch_array($result); 
 
          ?>
-         <div class="row">
-           <div class="col-sm-6">
-             <label for="">Fecha: <span><?php echo $row['fecha']; ?></span></label>
-           </div>
-           <div class="col-sm-6">
-             <label for="">Numero Requicision: <span id="numReq"><?php echo $row['numPed']; ?></span></label>
-           </div>
-         </div>
-         <div class="row">
-           <div class="col-sm-6">
-             <label for="">Establecimiento de Salud (ecof): <span><?php echo $row['eco']; ?></span></label>
-           </div>
-           <div class="col-sm-6">
-             <label for="">Encargado: <span><?php echo $_SESSION["nombre"]; ?></span></label>
-           </div>
-         </div>
+         <table class="table table-bordered">
+           <tr>
+             <td>
+               Fecha: <?php echo $row['fecha']; ?>
+             </td>
+             <td>
+               Numero Documento: <?php echo $row['numPed']; ?>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               Responsable: <?php echo $_SESSION["nombre"]; ?>
+             </td>
+             <td>
+               Establecimiento de salud: <?php echo $row['eco']; ?>
+             </td>
+           </tr>
+         </table>
+          
         
       <div class="jumbotron">
         <div class="row">
