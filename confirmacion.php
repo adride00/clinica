@@ -68,14 +68,17 @@
           </fieldset>
       </form>
     </div>
+    
     <nav aria-label="...">
   
     </div>
+    <div style="border-radius: 35px" class="alert alert-info" role="alert">
     <ul class="pager">
     <li class="previous"><a style="background-color: skyblue" class="btn-info" href="info.php"><span aria-hidden="true">&larr;</span>Atras</a></li>
     <li class="next"><a id="terminar" style="background-color: skyblue" class="btn-info" id="siguiente" href="facturar.php">Terminar<span aria-hidden="true">&rarr;</span></a></li>
   </ul>
 </nav>
+</div>
     </div> 
          </div> 
      <script src="js/jquery-3.2.1.min.js"></script>

@@ -81,14 +81,14 @@
 
             </table>
             
-            
+            <div style="border-radius: 35px; height: 90px" class="alert alert-info" role="alert">
             <nav aria-label="...">
             <ul class="pager">
               
               <li class="next"><a style="background-color: skyblue" class="btn-info" href="info.php">Siguiente<span aria-hidden="true">&rarr;</span></a></li>
             </ul>
           </nav>
-
+          </div>
     
               
           </fieldset>

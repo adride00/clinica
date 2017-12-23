@@ -11,7 +11,7 @@
   
    <ul class="nav nav-tabs">
                 <li role="presentation"><a href="vale_entrada.php">Seleccion</a></li>
-                <li role="presentation" class="active"><a href="info_entrada.php">Datos</a></li>
+                <li role="presentation" class="active"><a href="info.php">Datos</a></li>
                 <li role="presentation"><a href="confirmacion_entrada.php">Confirmar Envio</a></li>
               </ul>
     <div class="theme-showcase" role="main">
@@ -26,11 +26,11 @@
            <center> <h4 class="control-label">Datos de envio</h4></center>
              <div class="row">
                <div class="col-sm-6">
-                 Fecha: <input autocomplete="off" type="text" class=" form-control datepicker" data-date-format="yyyy-mm-dd" name="fecha1" id="fecha1"
+                 Fecha: <input autocomplete="off" type="text" class=" form-control datepicker" data-date-format="yyyy-mm-dd" name="fecha1" id="fecha"
                          placeholder="Introduce fecha"><br>
                </div>
                <div class="col-sm-6">
-                 No Documento: <input id="numPed" type="text">
+                 No. De Pedido: <input id="numPed" type="text">
                </div>
                <div class="row">
                  <div class="col-sm-6"><br>
@@ -41,21 +41,24 @@
              
             
                        
-            <div class="row">
-              <div class="col-sm-6">
-                <a href="vale_entrada.php">Atras</a>
-              </div>
-              <div class="col-sm-6">
-                <a id="siguiente" href="confirmacion_entrada.php">Siguiente</a>
-              </div>
-            </div>
+           
 
     
               
           </fieldset>
       </form>
+
+      
+  
     </div>
-    
+    <nav aria-label="...">
+    <div style="border-radius: 35px" class="alert alert-info" role="alert">
+    <ul class="pager">
+    <li class="previous"><a style="background-color: skyblue" class="btn-info" href="vale_entrada.php"><span aria-hidden="true">&larr;</span>Atras</a></li>
+    <li class="next"><a style="background-color: skyblue" class="btn-info" id="siguiente" href="confirmacion_entrada.php">Siguiente<span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</div>
+</nav>
     </div> 
          </div> 
      <script src="js/jquery-3.2.1.min.js"></script>
@@ -121,7 +124,13 @@
             data:cadena,
             succes:function(r){
               if(r==1){
-                alert("Agregado");
+                  swal({
+                    position: 'top-center',
+                    type: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
               }else{
                 aler("no se agrego");
               }
@@ -140,7 +149,7 @@
                 monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
         };
       window.prettyPrint && prettyPrint();
-      $('#fecha1').datepicker({
+      $('#fecha').datepicker({
         format: 'yyyy-mm-dd',
         language:'es',
 

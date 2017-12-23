@@ -47,13 +47,17 @@
               
           </fieldset>
       </form>
-      <nav aria-label="...">
+
+      
   
     </div>
+    <nav aria-label="...">
+    <div style="border-radius: 35px" class="alert alert-info" role="alert">
     <ul class="pager">
     <li class="previous"><a style="background-color: skyblue" class="btn-info" href="vale_de_medicamentos.php"><span aria-hidden="true">&larr;</span>Atras</a></li>
     <li class="next"><a style="background-color: skyblue" class="btn-info" id="siguiente" href="confirmacion.php">Siguiente<span aria-hidden="true">&rarr;</span></a></li>
   </ul>
+</div>
 </nav>
     </div> 
          </div> 
