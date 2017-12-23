@@ -19,7 +19,7 @@
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <div class="page-header">
-  <h3>Reporte Movimientos <small>Consumo diario</small></h3>
+  <h3>Reporte Movimientos <small>Entradas</small></h3>
 </div>
     
     <a href="view_report.php"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i>
@@ -51,7 +51,7 @@
                   include("conectar.php");
 
 
-                  $sql_select = "SELECT DISTINCT m.numPed, m.fecha, u.nombre, m.tipo FROM movimiento as m JOIN usuario as u ON m.id_usuario = u.id_usuario WHERE m.tipo = 'Consumo diario' ORDER BY m.id_movimiento DESC"; 
+                  $sql_select = "SELECT DISTINCT m.numPed, m.fecha, u.nombre, m.tipo FROM movimiento as m JOIN usuario as u ON m.id_usuario = u.id_usuario WHERE m.tipo = 'entrada' ORDER BY m.id_movimiento DESC"; 
                   $result = mysqli_query($link,$sql_select);
                   
                   while($mostrar=mysqli_fetch_array($result)){ 

@@ -5,7 +5,7 @@
  ?>
 
   <body>
-
+a
     
           <?php 
           		include("nav-menu.php");	
@@ -35,7 +35,7 @@
       -->
 				<div class="col-sm-4">
 					<div class="card" style="width: 20rem;">
-					  <a href="vale_entrada.php"><img class="card-img-top" src="img/camion-de-reparto.png" alt="Card image cap"></a>
+					  <a href="reportes_envios.php"><img class="card-img-top" src="img/camion-de-reparto.png" alt="Card image cap"></a>
 					  <div class="card-body">
 					    <p class="card-text">Reportes Envios</p>
 					  </div>
@@ -44,7 +44,7 @@
 
         <div class="col-sm-4">
           <div class="card" style="width: 20rem;">
-            <a href="vale_de_medicamentos.php"><img class="card-img-top" src="img/bandeja-de-entrada.png" alt="Card image cap"></a>
+            <a href="reportes_entrada.php"><img class="card-img-top" src="img/bandeja-de-entrada.png" alt="Card image cap"></a>
             <div class="card-body">
               <p class="card-text">Reportes Entradas</p>
             </div>
