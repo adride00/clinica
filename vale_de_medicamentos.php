@@ -6,8 +6,10 @@
 ?>
 <script src="js/jquery-3.2.1.min.js"></script>
   <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
-  
-
+  <link rel="stylesheet" href="alert/css/alertify.min.css" />
+  <script src="alert/alertify.min.js"></script>
+<!-- include a theme -->
+<link rel="stylesheet" href="{PATH}/themes/default.min.css" />
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
  
   
@@ -123,10 +125,9 @@
   
     <script>
        $(document).ready(function(){
-
-
-                 
-          $('button').click(function(){
+          $('button').click(function(e){
+            e.preventDefault();
+            $('button').attr("disabled", true);
             var clase = $(this).attr('id');
             var selDesc = '#' + clase + ' #desc'; 
             var selCant = '.' + clase;
@@ -134,47 +135,42 @@
             var descripcion = $(selDesc).text();
             var cantidad = $(selCant).val()
             var codigo = $(selCode).text()
+            swal({
+                position: 'top-center',
+                type: 'success',
+                title: 'Producto se agrego correctamente',
+                showConfirmButton: false,
+                timer: 1500
+              });
+             $(selCant).hide(); 
             
-              
-            if(cantidad){
-              
-
-                
-              agregarDatos(codigo,cantidad,descripcion);
+           agregarDatos(codigo,cantidad,descripcion);
               //validarStock(cantidad,selCant,codigo);
-            }
-              
             
-              
-            
-            });
-            
-          });
-
-
-
-       
-       
-
-
-    </script>
-      <script>
-                function agregarDatos(codigo,cantidad,descripcion){
+            function agregarDatos(codigo,cantidad,descripcion){
           
-          cadena = "codigo=" + codigo + "&descripcion=" + descripcion + "&cantidad=" +cantidad;
           $.ajax({
             type:"POST",
             url:"envioMed.php",
-            data:cadena,
-            succes:function(resp){
-              if(resp){
-                alert("Agregado");
+            data: "codigo=" + codigo + "&descripcion=" + descripcion + "&cantidad=" +cantidad,
+            dataType: "html",
+            error: function(){
+            alert("error petición ajax");
+                              },
+            succes:function(data){
+              if(data === 'exito'){
+              
+          
               }else{
-                aler("no se agrego");
+                
               }
             }
-          });
-        }
+            });
+          }
+        });
+
+        });
+
       </script>
       <script>
           $(document).ready(function(){

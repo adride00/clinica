@@ -27,6 +27,7 @@
 		$sql = "INSERT INTO carrito (codigo,descripcion,cantidad) VALUES('$cod','$d','$c')";
 
 		$consulta = mysqli_query($link,$sql);
+		echo "exito";
 	}
-	echo 1;
+	
  ?>

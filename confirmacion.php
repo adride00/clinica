@@ -143,7 +143,8 @@
 
          
         
-          $('button').click(function(){
+          $('button').click(function(e){
+          
             var clase = $(this).attr('id');
             var selDesc = '#' + clase + ' #desc'; 
             var selCant = '#' + clase + ' #cant';
@@ -151,7 +152,7 @@
             var descripcion = $(selDesc).text();
             var cantidad = $(selCant).text()
             var codigo = $(selCode).text()
-            
+           
 
             if(clase){
               agregarDatos(clase,cantidad,descripcion);
