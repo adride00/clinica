@@ -27,7 +27,7 @@
 
             <table class="table table-hover" id="myTable">
               <thead>
-                <tr>
+                <tr class="bg-primary">
                   <th>
                     Codigo
                   </th>
@@ -106,30 +106,19 @@
     
   <script src="js/typeahead.min.js"></script>  
   <script>
-    $(document).ready(function(){
-            $('#myTable').DataTable({
-                pageLength: 10,
-                responsive: true,
-                dom: '<"html5buttons"B>lTfgitp',
-                buttons: [
-                   
-                    {extend: 'excel', title: 'ExampleFile'},
-                    
-                    {extend: 'print',
-                     customize: function (win){
-                            $(win.document.body).addClass('white-bg');
-                            $(win.document.body).css('font-size', '10px');
-
-                            $(win.document.body).find('table')
-                                    .addClass('compact')
-                                    .css('font-size', 'inherit');
-                    }
-                    }
-                ]
-
-            });
-
-        });
+    $(document).ready(function() {
+    $('#myTable').DataTable( {
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ resultados por pagina",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No existen registros",
+            "search": "Buscar",
+            
+            "infoFiltered": "(filtered from _MAX_ total records)"
+        }
+    } );
+} );
   </script>
   
     <script>

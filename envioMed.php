@@ -28,5 +28,5 @@
 
 		$consulta = mysqli_query($link,$sql);
 	}
-	
+	echo 1;
  ?>
