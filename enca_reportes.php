@@ -50,6 +50,24 @@ a
             </div>
           </div>
         </div>
+
+        <div class="col-sm-4">
+          <div class="card" style="width: 20rem;">
+            <a href="reportes_vencidos.php"><img class="card-img-top" src="img/analitica.png" alt="Card image cap"></a>
+            <div class="card-body">
+              <p class="card-text">Reportes Vencidos</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card" style="width: 20rem;">
+            <a href="reportes_deteriorados.php"><img class="card-img-top" src="img/portapapeles.png" alt="Card image cap"></a>
+            <div class="card-body">
+              <p class="card-text">Reportes Deteriorados</p>
+            </div>
+          </div>
+        </div>
 			</div>
 			
 			
