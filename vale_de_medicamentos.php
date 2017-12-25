@@ -135,6 +135,7 @@
             var descripcion = $(selDesc).text();
             var cantidad = $(selCant).val()
             var codigo = $(selCode).text()
+            if(cantidad){
             swal({
                 position: 'top-center',
                 type: 'success',
@@ -146,7 +147,7 @@
             
            agregarDatos(codigo,cantidad,descripcion);
               //validarStock(cantidad,selCant,codigo);
-            
+            }
             function agregarDatos(codigo,cantidad,descripcion){
           
           $.ajax({

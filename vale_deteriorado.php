@@ -126,7 +126,8 @@
 
 
                  
-          $('button').click(function(){
+          $('button').click(function(e){
+            e.preventDefault();
             var clase = $(this).attr('id');
             var selDesc = '#' + clase + ' #desc'; 
             var selCant = '.' + clase;
@@ -137,7 +138,14 @@
             
               
             if(cantidad){
-              
+              swal({
+                position: 'top-center',
+                type: 'success',
+                title: 'Producto se agrego correctamente',
+                showConfirmButton: false,
+                timer: 1500
+              });
+             $(selCant).hide();
 
                 
               agregarDatos(codigo,cantidad,descripcion);
