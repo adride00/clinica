@@ -115,7 +115,7 @@
               <!--<a class="<?php echo $mostrar['numPed'] ?>" href="view_detalle.php"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i>
 </a>
 -->
-            <button id="<?php echo $mostrar['numPed'] ?>" class="btn btn-info btn-md"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></button>
+            <button id="" class="btn btn-info btn-md botonpdf"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></button>
             </div>
           </div>
           <div id="aqui">
@@ -142,7 +142,13 @@
 
 
   <script src="js/typeahead.min.js"></script>  
-
+  <script>
+    $(document).ready(function(){
+      $(".botonpdf").click(function(e){
+        e.preventDefault();
+      });
+    });
+  </script>
   <script>
     $(document).ready(function(){
       $('button').click(function(){

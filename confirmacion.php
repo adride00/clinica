@@ -144,7 +144,7 @@
          
         
           $('button').click(function(e){
-          
+            
             var clase = $(this).attr('id');
             var selDesc = '#' + clase + ' #desc'; 
             var selCant = '#' + clase + ' #cant';
@@ -155,6 +155,7 @@
            
 
             if(clase){
+
               agregarDatos(clase,cantidad,descripcion);
             }
               
@@ -180,8 +181,9 @@
             type:"POST",
             url:"borrar.php",
             data:cadena,
+            dataType: "html",
             succes:function(r){
-              if(r==1){
+              if(r===1){
                 alert("Agregado");
               }else{
                 aler("no se agrego");

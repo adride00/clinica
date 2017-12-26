@@ -43,7 +43,7 @@
 
 		}
 
-
+		
 		
 
 		$sql_clean = "DELETE FROM carrito";
@@ -52,9 +52,9 @@
 		$sql_DelTmp = "DELETE FROM tmp_datos";
 		$resultDelTmp = mysqli_query($link,$sql_DelTmp);
 
+		
 
-
-		 header("Location:dashboard.php"); 
+		
 
 
 			//for ($i=0;$i<$num ;$i++){
