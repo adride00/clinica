@@ -22,8 +22,7 @@
   <h3>Reporte Movimientos <small>Envios</small></h3>
 </div>
     
-    <a href="view_report.php"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i>
-</a>
+    
     <div class="row">
       <table class="table table-hover dataTables-example" id="myTable">
                 <thead>
@@ -75,7 +74,8 @@
                         echo "<td>".$mostrar['tipo']."</td>";  
 
                         echo '
-                            <td><button id="'.$mostrar['numPed'].'" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Ver</button></td>
+                             <td><a target="_blank" href="view_report_CD.php?id='.$mostrar[0].'"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i>
+                                  </a></td>
 
                         ';
                       echo '</tr>';
