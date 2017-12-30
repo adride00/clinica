@@ -20,6 +20,7 @@ Panel de control<span class="sr-only">(current)</span></a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="reporte_mensual.php">Consumo mensual</a></li>
+            <li><a href="pruebas.php">Por dia</a></li>
             
           </ul>
           
