@@ -19,7 +19,8 @@
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   
-<table class="table table-bordered">
+<table class="table table-bordered" id="myTable">
+  <thead>
   <tr>
     <th>Descripcion</th>
     <?php 
@@ -37,6 +38,7 @@
 
     ?>
     <th>total</th>
+    </thead>
   </tr>
   
   <?php 
