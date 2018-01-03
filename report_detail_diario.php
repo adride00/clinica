@@ -125,7 +125,7 @@
       
          <tr>
         <td style="width:3.1%">'.$i.'</td>
-        <td style="width:6.5%"><'.$row_articulo[2].'</td>
+        <td style="width:6.5%">'.$row_articulo[2].'</td>
         <td style="width:19%">'.$row_articulo[0].'</td>
         <td style="width:3.2%">'.$row_articulo[3].'</td>
         
@@ -142,7 +142,7 @@
 <?php  
     $x=1;
      while($x<32){
-      $sql_cantidad = "SELECT cantidad FROM movimiento WHERE day(fecha) = '$x' and tipo = 'Consumo diario' and id_producto = '$row_articulo[1]' and fecha BETWEEN '2017-12-1' and '2017-12-31'";
+      $sql_cantidad = "SELECT cantidad FROM movimiento WHERE day(fecha) = '$x' and tipo = 'Consumo diario' and id_producto = '$row_articulo[1]' and fecha BETWEEN '$fecha1' and '$fecha2'";
         $result_cantidad = mysqli_query($link,$sql_cantidad);
         $row_cantidad = mysqli_fetch_array($result_cantidad);
          echo 
@@ -154,7 +154,7 @@
          $x++;
       }
 
-      $sql_total = "SELECT sum(m.cantidad) as consumo, count(DISTINCT(day(m.fecha))) as dias FROM articulo as a JOIN movimiento as m ON a.id_producto = m.id_producto WHERE m.id_producto = '$row_articulo[1]' and m.tipo = 'Consumo diario' and m.fecha BETWEEN '2017-12-1' and '2017-12-31'";
+      $sql_total = "SELECT sum(m.cantidad) as consumo, count(DISTINCT(day(m.fecha))) as dias FROM articulo as a JOIN movimiento as m ON a.id_producto = m.id_producto WHERE m.id_producto = '$row_articulo[1]' and m.tipo = 'Consumo diario' and m.fecha BETWEEN '$fecha1' and '$fecha2'";
      $result_total = mysqli_query($link,$sql_total);
      $row_total = mysqli_fetch_array($result_total);
      echo 
