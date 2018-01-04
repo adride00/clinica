@@ -107,21 +107,7 @@
     <script src="js/plugins/dataTables/datatables.min.js"></script>
     
   <script src="js/typeahead.min.js"></script>  
-  <script>
-    $(document).ready(function() {
-    $('#myTable').DataTable( {
-        "language": {
-            "lengthMenu": "Mostrar _MENU_ resultados por pagina",
-            "zeroRecords": "No se encontraron registros",
-            "info": "Mostrando pagina _PAGE_ de _PAGES_",
-            "infoEmpty": "No existen registros",
-            "search": "Buscar",
-            
-            "infoFiltered": "(filtered from _MAX_ total records)"
-        }
-    } );
-} );
-  </script>
+  
   
     <script>
        $(document).ready(function(){
@@ -231,10 +217,20 @@
       </script>
 
       <script>
-        
-          
-        
-      </script>
+    $(document).ready(function() {
+    $('#myTable').DataTable( {
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ resultados por pagina",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No existen registros",
+            "search": "Buscar",
+            
+            "infoFiltered": "(filtered from _MAX_ total records)"
+        }
+    } );
+} );
+  </script>
    <script src="js/sweetalert2.all.js"></script>
   </body>
  </html>
