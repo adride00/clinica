@@ -51,7 +51,7 @@
                   include("conectar.php");
 
 
-                  $sql_select = "SELECT DISTINCT m.numPed, m.fecha, u.nombre, m.tipo FROM movimiento as m JOIN usuario as u ON m.id_usuario = u.id_usuario WHERE m.tipo = 'Consumo diario' ORDER BY m.id_movimiento DESC"; 
+                  $sql_select = "SELECT DISTINCT m.numPed, m.fecha, u.nombre, m.tipo FROM movimiento as m JOIN usuario as u ON m.id_usuario = u.id_usuario WHERE m.tipo = 'Consumo diario' ORDER BY m.fecha DESC"; 
                   $result = mysqli_query($link,$sql_select);
                   
                   while($mostrar=mysqli_fetch_array($result)){ 

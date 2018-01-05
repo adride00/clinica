@@ -19,7 +19,7 @@
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <div class="page-header">
-  <h3>Reporte Movimientos <small>Consumo diario</small></h3>
+  <h3>Reporte Movimientos <small>Reportes de ajustes</small></h3>
 </div>
     
     

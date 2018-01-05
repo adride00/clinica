@@ -53,7 +53,7 @@
 		$resultDelTmp = mysqli_query($link,$sql_DelTmp);
 
 		
-
+		header("Location:reportes_envios.php");
 		
 
 

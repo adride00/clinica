@@ -56,7 +56,7 @@
 
 
 
-		 header("Location:dashboard.php"); 
+		 header("Location:reportes_entrada.php"); 
 
 
 			//for ($i=0;$i<$num ;$i++){

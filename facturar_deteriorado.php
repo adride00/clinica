@@ -54,7 +54,7 @@
 
 
 
-		 header("Location:dashboard.php"); 
+		 header("Location:reportes_deteriorados.php"); 
 
 
 			//for ($i=0;$i<$num ;$i++){

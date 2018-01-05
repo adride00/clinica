@@ -196,7 +196,7 @@
 
         
           $.ajax({
-            url: 'agre.php',
+           
             type: 'POST',
             dataType: 'json',
             data: $(this).serialize(),
