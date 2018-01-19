@@ -33,10 +33,18 @@
               <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre">
             </div>
             
-
+            
             <div class="form-group">
               <label class="control-label">Usuario</label>
               <input type="text"  id="usuario" name="usuario" class="form-control" placeholder="Cantidad">
+            </div>
+            
+            <div class="form-group">
+              <label for="" class="control-label">Tipo Usuario</label>
+              <select name="tipo_usuario" id="" class="form-control">
+                <option value="farmacia">Administrador de farmacia</option>
+                <option value="bodega">Administrador de bodega</option>
+              </select>
             </div>
 
             <div class="form-group">
@@ -103,8 +111,9 @@
   $nombre = $_POST["nombre"];
   $usuario = $_POST["usuario"];
   $clave = $_POST["clave"];
-  $sql_insert = "INSERT INTO usuario(nombre,usuario,clave) 
-  VALUES('$nombre','$usuario','$clave')";
+  $tipo = $_POST["tipo_usuario"];
+  $sql_insert = "INSERT INTO usuario(nombre,usuario,clave,tipo_usuario) 
+  VALUES('$nombre','$usuario','$clave','$tipo')";
   $consulta = mysqli_query($link, $sql_insert);   
   
   mysqli_close($link); //cerramos conexion con la base de datos

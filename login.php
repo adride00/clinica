@@ -100,13 +100,14 @@ session_start();
     $consulta = mysqli_query($link,$sql_user);
     $contar = mysqli_num_rows($consulta);
     $user = mysqli_fetch_array($consulta);
-    $id_user = $user["id_user"];
+    $id_user = $user["id_usuario"];
     $nombre = $user["nombre"];
-
+    $tipo = $user["tipo_usuario"];
     if($contar > 0){
         $_SESSION["login"] = "OK";
         $_SESSION["id_user"] = $id_user;
         $_SESSION["nombre"] = $nombre;
+        $_SESSION["tipo"] = $tipo;
 
         header("Location:dashboard.php");
         mysqli_close($link);
@@ -114,7 +115,7 @@ session_start();
 
      }else{
       echo "<script>alert('usuario o calve son incorrectos')</script>";
-      mysql_close($link);
+      mysqli_close($link);
      }
   }
 

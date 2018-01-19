@@ -10,6 +10,11 @@
 	}
 </style>
   
+
+
+<link rel="stylesheet" href="DataTables/Data/css/jquery.dataTables.min.css">
+
+
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
@@ -22,30 +27,44 @@
     <div class="theme-showcase" role="main">
 
       <div class="jumbotron">
-        <div class="row">
-          <div class="col-sm-6">
-            <input type="text" size="30px" id="busqueda" name="busqueda" placeholder="Buscar...">
-          </div>
-          <div class="col-sm-6">
-            
-          </div>
-        </div>
+        
 
-        <form method="GET" role="form" id="formulario" name="formulario">
+        
           <fieldset>
            <center> <h4 class="control-label">Usuarios Registrados</h4></center>
 
-            
-            <section class="row" id="tabla_resultado">
-            
-          </section>
-            
-            
+            <table id="myTable" class="table table-info table-hover">
+              <thead>
+            <tr>
+              
+                <th>Nombre</td>
+                <th>Usuario</td>
+                <th>Tipo de usuario</td>
+              
+            </tr>  
+            </thead>
+           <?php 
+
+              include("conectar.php");
+              $sql_usuarios = "SELECT nombre,usuario,tipo_usuario FROM usuario";
+              $result_usuario = mysqli_query($link,$sql_usuarios);
+
+              while($row_usuario=mysqli_fetch_array($result_usuario)){
+
+              
+
+            ?>
+            <tr>
+              <td><?php echo $row_usuario['nombre']; ?></td>
+              <td><?php echo $row_usuario['usuario']; ?></td>
+              <td><?php echo $row_usuario['tipo_usuario']; ?></td>
+            </tr>
+            <?php } ?>
 
     
-              
+            </table>  
           </fieldset>
-      </form>
+      
     </div>
     
     </div> 
@@ -156,6 +175,21 @@
         
       </script>
    <script src="js/sweetalert2.all.js"></script>
+   <script src="js/plugins/dataTables/datatables.min.js"></script>
+ 
+
+
+<!-- Script para controlar funciones de la tabla -->
+    <script>
+        $(document).ready(function(){
+            $('#myTable').DataTable({
+                
+
+            });
+
+        });
+
+    </script>
   </body>
  </html>
 

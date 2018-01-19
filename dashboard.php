@@ -12,7 +12,11 @@
           		include("aside-menu.php");
            ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          
+          <?php 
+
+          	if($_SESSION["tipo"] == "farmacia"){
+
+           ?>
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="card" style="width: 20rem;">
@@ -97,8 +101,19 @@
 			</div>
             
               
-                  
-                
+                  <?php 
+
+                  	}
+
+                  	else{
+
+                  	
+
+                   ?>
+                	
+                	<h2>Menu bodega</h2>
+
+                	<?php } ?>
 
                
 
