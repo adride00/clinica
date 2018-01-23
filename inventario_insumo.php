@@ -48,8 +48,9 @@
                                 JOIN articulo as a
 
                                 ON s.id_producto = a.id_producto
+                                
+                                WHERE a.tipo = 'insumo'
 
-                                WHERE a.tipo = 'medicamento'
                                 "; 
                   $result = mysqli_query($link,$sql_select);
                   

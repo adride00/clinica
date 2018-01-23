@@ -3,6 +3,8 @@
 	$d = $_POST['descripcion'];
 	$c = $_POST['cantidad'];
 	$cod = $_POST['codigo'];
+	$lote = $_POST['lote'];
+	$fecha = $_POST['fecha'];
 	
 	
 	
@@ -24,7 +26,7 @@
 			$resultUpdate = mysqli_query($sql_update);
 	}else{
 
-		$sql = "INSERT INTO carrito (codigo,descripcion,cantidad) VALUES('$cod','$d','$c')";
+		$sql = "INSERT INTO carrito (codigo,descripcion,cantidad,fecha_vencimiento,lote) VALUES('$cod','$d','$c','$fecha',$lote)";
 
 		$consulta = mysqli_query($link,$sql);
 		echo "exito";

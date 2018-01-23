@@ -112,7 +112,14 @@
                    ?>
                 	
                 	<h2>Menu bodega</h2>
-
+						<div class="col-sm-4">
+					<div class="card" style="width: 20rem;">
+						  <a href="enca_mov.php"><img class="card-img-top" src="img/movimientos.png" alt="Card image cap"></a>
+						  <div class="card-body">
+						    <p class="card-text">Movimientos</p>
+						  </div>
+						</div>
+					</div>
                 	<?php } ?>
 
                

@@ -57,9 +57,40 @@
            <center> <h4 class="control-label"></h4></center>
 
             
-            <section class="row" id="tabla_resultado">
-            
-          </section>
+            <table class="table table-info">
+               <thead>
+                 <tr>
+                   <th>Codigo</th>
+                   <th>Descripcion</th>
+                   <th>Lote</th>
+                   <th>Fecha Vencimiento</th>
+                   <th>Cantidad</th>
+                   <th>Borrar</th>
+                 </tr>
+               </thead> 
+                
+                <?php 
+                  include('conectar.php');
+                  $sql_carrito = 'SELECT codigo,descripcion,cantidad,lote,fecha_vencimiento FROM carrito';
+                  $result = mysqli_query($link,$sql_carrito);
+
+                  while($row_carrito=mysqli_fetch_array($result)){
+
+                  
+
+                 ?>
+
+                  <tr id="<?php echo $row_carrito['id_carrito'] ?>">
+                    <td><?php echo $row_carrito['codigo'] ?></td>
+                    <td><?php echo $row_carrito['descripcion'] ?></td>
+                    <td><?php echo $row_carrito['lote'] ?></td>
+                    <td><?php echo $row_carrito['fecha_vencimiento'] ?></td>
+                    <td><?php echo $row_carrito['cantidad'] ?></td>
+                    <td><button class="btn btn-primary">Borrar</button></td>
+                  </tr>
+
+                <?php } ?>
+            </table>
             
             
 

@@ -21,7 +21,7 @@ Panel de control<span class="sr-only">(current)</span></a></li>
 
             <?php if($_SESSION["tipo"] == "farmacia"){ ?>
             <li><a href="inventario_medicamentos.php">Inventario Medicamentos</a></li>
-            <li><a href="#">Inventario Insumos</a></li>
+            <li><a href="inventario_insumo.php">Inventario Insumos</a></li>
             <li><a href="reporte_promedio.php">Consumo Mensual Promedio</a></li>
           </ul>
           <ul class="nav nav-sidebar">

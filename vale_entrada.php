@@ -5,6 +5,7 @@
   include("aside-menu.php");
 ?>
 <script src="js/jquery-3.2.1.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
   
 
@@ -38,6 +39,12 @@
                     Existencia
                   </th>
                   <th>
+                    Lote
+                  </th>
+                  <th>
+                    Fecha Vencimiento
+                  </th>
+                  <th>
                     Cantidad
                   </th>
                   <th>
@@ -61,6 +68,11 @@
                     <td id="code">'.$row['codigo'].'</td>
                     <td id="desc">'.$row['descripcion'].'</td>
                     <td>'.$row['existencia'].'</td>
+                    <td>
+                      <input id="lote" type="text" size="5px"> 
+                    </td>
+                    <td><input autocomplete="off" type="text" class="form-control datepicker fechaV" data-date-format="yyyy-mm-dd" name="fecha1" id="fecha"
+                         placeholder="Introduce fecha"></td>
                     <td>
                       <input id='.$row['codigo'].' class='.$row["id_producto"].' type="text" size="5px"> 
                     </td>
@@ -102,10 +114,11 @@
     <script src="js/jquery.validate.js"></script>
     <script src="js/frm_RegInsumos.js"></script>
     <script src="peticion.js"></script>
+    
     <script src="js/plugins/dataTables/datatables.min.js"></script>
     
   <script src="js/typeahead.min.js"></script>  
- 
+
   
     <script>
        $(document).ready(function(){
@@ -118,9 +131,14 @@
             var selDesc = '#' + clase + ' #desc'; 
             var selCant = '.' + clase;
             var selCode = '#' + clase + ' #code';
+            var selLote = '#' + clase + ' td #lote';
+            var selFecha = '#' + clase + ' td #fecha';
+            var lote = $(selLote).val()
+            var fecha = $(selFecha).val()
             var descripcion = $(selDesc).text();
             var cantidad = $(selCant).val()
             var codigo = $(selCode).text()
+
             
               
             if(cantidad){
@@ -134,7 +152,7 @@
               });
              $(selCant).hide();
                 
-              agregarDatos(codigo,cantidad,descripcion);
+              agregarDatos(codigo,cantidad,descripcion,lote,fecha);
               //validarStock(cantidad,selCant,codigo);
             }
               
@@ -153,9 +171,9 @@
 
     </script>
       <script>
-                function agregarDatos(codigo,cantidad,descripcion){
+                function agregarDatos(codigo,cantidad,descripcion,lote,fecha){
           
-          cadena = "codigo=" + codigo + "&descripcion=" + descripcion + "&cantidad=" +cantidad;
+          cadena = "codigo=" + codigo + "&descripcion=" + descripcion + "&cantidad=" +cantidad + "&lote=" + lote + "&fecha=" + fecha;
           $.ajax({
             type:"POST",
             url:"envioMed.php",
@@ -172,7 +190,32 @@
       </script>
       
 
-    <script>
+    
+   <script src="js/sweetalert2.all.js"></script>
+   
+   <script src="js/bootstrap-datepicker.js"></script>
+ <script>
+  $(function(){
+      $.fn.datepicker.dates['es'] = {
+                days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+                daysShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
+                daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"],
+                months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+                monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
+        };
+      window.prettyPrint && prettyPrint();
+      $('.fechaV').datepicker({
+        format: 'yyyy-mm-dd',
+        language:'es',
+
+      });
+      $('#fecha2').datepicker({
+        format: 'yyyy-mm-dd',
+        language:'es',
+        });
+    });
+  </script>
+  <script>
    $(document).ready(function() {
     $('#myTable').DataTable( {
         "language": {
@@ -187,7 +230,6 @@
     } );
 } );
   </script>
-   <script src="js/sweetalert2.all.js"></script>
   </body>
  </html>
 
