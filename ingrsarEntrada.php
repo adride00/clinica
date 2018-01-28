@@ -2,7 +2,7 @@
 	include("validar.php"); 
 	include("conectar.php");
 
-		$sql_carrito = "SELECT descripcion, cantidad FROM carrito";
+		$sql_carrito = "SELECT descripcion, cantidad, fecha_vencimiento, lote FROM carrito";
 		$consulta = mysqli_query($link,$sql_carrito);
 
 
@@ -22,7 +22,8 @@
 
 			$descripcion = $rowCa['descripcion'];
 			$cantidad = $rowCa['cantidad'];
-
+			$fecha_vencimiento = $rowCa['fecha_vencimiento'];
+			$lote = $rowCa['lote'];
 			$sql_produc = "SELECT id_producto FROM articulo WHERE descripcion = '$descripcion'";
 			$resultProd = mysqli_query($link,$sql_produc);
 			$rowProd = mysqli_fetch_array($resultProd);
@@ -39,7 +40,7 @@
 
 			$resultUpdate = mysqli_query($link,$sql_update);
 		
-			$insercion = "INSERT INTO movimiento (tipo,cantidad,fecha,id_producto,id_usuario,id_ecof,numPed) VALUES('Entrada','$cantidad','$row[1]','$rowProd[0]','$rowUser[0]','$rowEco[0]','$row[3]')";
+			$insercion = "INSERT INTO movimiento (tipo,cantidad,fecha,id_producto,id_usuario,id_ecof,numPed,fecha_vencimiento,lote) VALUES('Entrada','$cantidad','$row[1]','$rowProd[0]','$rowUser[0]','$rowEco[0]','$row[3]','$fecha_vencimiento','$lote')";
 
 			$ejecutar = mysqli_query($link,$insercion);	
 

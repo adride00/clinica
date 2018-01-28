@@ -48,14 +48,14 @@
           </fieldset>
       </form>
 
-      
+      <div id="resultado"></div>
   
     </div>
     <nav aria-label="...">
     <div style="border-radius: 35px" class="alert alert-info" role="alert">
     <ul class="pager">
     <li class="previous"><a style="background-color: skyblue" class="btn-info" href="vale_entrada.php"><span aria-hidden="true">&larr;</span>Atras</a></li>
-    <li class="next"><a style="background-color: skyblue" class="btn-info" id="siguiente" href="confirmacion_entrada.php">Siguiente<span aria-hidden="true">&rarr;</span></a></li>
+    <li class="next"><a id="siguiente" style="background-color: skyblue" class="btn-info" id="siguiente" href="confirmacion_entrada.php">Siguiente<span aria-hidden="true">&rarr;</span></a></li>
   </ul>
 </div>
 </nav>
@@ -67,6 +67,63 @@
     <script src="js/frm_RegInsumos.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/typeahead.min.js"></script>  
+  <script>
+    $(document).ready(function(){
+      $('#numPed').keyup(function(){
+        var numPedido = $(this).val();
+        
+        evaluar(numPedido);
+      });
+    });
+  </script>
+    <script>
+      $(document).ready(function(){
+        $('#siguiente').click(function(e){
+        
+          var numPed = $('#numPed').val();
+          
+         
+
+           if(validar(numPed)){
+            e.preventDefault();
+           } 
+        })
+      });
+    </script>
+    <script>
+        function validar(numero){
+          $.ajax({
+                              type: "POST",
+                              url: "validarNumPedido.php",
+                              data: "num="+numero,
+                              dataType: "html",
+                              error: function(){
+                                    alert("error petición ajax");
+                              },
+                              success: function(data){                                                      
+                                    $("#resultado").html(data);
+                                    if(data === '1'){
+                                      
+                                       
+                                       swal({
+                                            title: 'El numero de pedido ya existe',
+                                            html: $('<div>')
+                                              .addClass('some-class')
+                                              .text(''),
+                                            animation: false,
+                                            customClass: 'animated tada'
+                                          });
+                                       return 1;
+                                       
+                                    }else{
+                                      
+                                    }
+          
+                              }
+                  });
+        }
+
+    </script>
   <script>
       $(document).ready(function(){
  

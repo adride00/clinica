@@ -1,128 +1,82 @@
 <?php 
-  include("validar.php");
-  include("cabecera.php");
-  include("nav-menu.php");  
-  include("aside-menu.php");
-?>
-<script src="js/jquery-3.2.1.min.js"></script>
+	include("conectar.php");
+	$cat = $_GET['cat'];
 
-  <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
-  
+echo '
 
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
- 
-  
-   <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#">Seleccion</a></li>
-                <li role="presentation"><a href="info_entrada.php">Datos</a></li>
-                <li role="presentation"><a href="confirmacion_entrada.php">Confirmar Envio</a></li>
-              </ul>
-    <div class="theme-showcase" role="main">
+<div class="page-header">
+  <h3>'.$cat.'<small> </small></h3>
+</div>
 
-      <div class="jumbotron">
-        
-        
-        <form method="GET" role="form" id="formulario" name="formulario">
-          <fieldset>
+';
 
-            <div class="form-group">
-              <select name="productos" class="form-control" name="" id="">
-                
-                <option value="medicamento">Medicamentos</option>
-                <option value="insumo">Insumos</option>
-              </select>
-            </div>
+	
 
-           <center> <h4 class="control-label">Seleccione Categoria</h4></center>
-          <!--
-            <table class="table table-hover" id="myTable">
-              <thead>
-                <tr class="bg-primary">
-                  <th>
-                    Codigo
-                  </th>
-                  <th>
-                    Descripcion
-                  </th>
-                  <th>
-                    Existencia
-                  </th>
-                  <th>
-                    Lote
-                  </th>
-                  <th>
-                    Fecha Vencimiento
-                  </th>
-                  <th>
-                    Cantidad
-                  </th>
-                  <th>
-                    Agregar
-                  </th>
-                </tr>
-              </thead>
-              <?php 
-                include("conectar.php");
-                $sql = "SELECT a.id_producto, a.codigo, a.descripcion, s.existencia FROM articulo as a JOIN stock as s ON a.id_producto = s.id_producto";
-                $result = mysqli_query($link,$sql);
-                while ($row=mysqli_fetch_array($result)) {
-                  
-                
-               
-                
-                  
+	$tabla= '
+		 <table class="table table-active" id="myTable">
+		 <thead>
+<tr class="thead">
+	<td>Codigo</td>
+	<td>Descripcion</td>
+	<td>Existencia</td>
+	<td>Lote</td>
+	<td>Fecha Vencimiento</td>
+	<td>Cantidad</td>
+	<td>Agregar</td>
+	
+</tr>
+</thead>
 
-                echo '
-                  <tr id='.$row["id_producto"].'>
-                    <td id="code">'.$row['codigo'].'</td>
-                    <td id="desc">'.$row['descripcion'].'</td>
-                    <td>'.$row['existencia'].'</td>
+
+
+	';
+
+	$sql_join = "SELECT a.id_producto, a.codigo, a.descripcion, s.existencia, a.tipo 
+	FROM articulo as a 
+
+	JOIN stock as s 
+
+	ON a.id_producto = s.id_producto 
+
+	WHERE a.tipo = '$cat'";
+
+$resultJoin = mysqli_query($link,$sql_join);
+
+while($rowJoin = mysqli_fetch_array($resultJoin)){
+	$tabla.='
+	
+	<tr id='.$rowJoin["id_producto"].'>
+                    <td id="code">'.$rowJoin['codigo'].'</td>
+                    <td id="desc">'.$rowJoin['descripcion'].'</td>
+                    <td>'.$rowJoin['existencia'].'</td>
                     <td>
                       <input id="lote" type="text" size="5px"> 
                     </td>
                     <td><input autocomplete="off" type="text" class="form-control datepicker fechaV" data-date-format="yyyy-mm-dd" name="fecha1" id="fecha"
                          placeholder="Introduce fecha"></td>
                     <td>
-                      <input id='.$row['codigo'].' class='.$row["id_producto"].' type="text" size="5px"> 
+                      <input id='.$rowJoin['codigo'].' class='.$rowJoin["id_producto"].' type="text" size="5px"> 
                     </td>
                     <td>
-                      <button class="btn-success btn btn-info btn-md" id='.$row["id_producto"].'><i class="fa fa-plus" aria-hidden="true"></i></button>
+                      <button class="btn-success btn btn-info btn-md" id='.$rowJoin["id_producto"].'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     </td>
                   </tr>
 
 
+	';
 
 
-                ';
-                
+}
 
-              }
 
-                 ?>
+$tabla.='</table>';
+echo $tabla;
 
-            </table>
-            -->
-            <div id="aqui">
-              
+ ?>
 
-            </div>
-            <div style="border-radius: 35px; height: 90px" class="alert alert-info" role="alert">
-            <nav aria-label="...">
-            <ul class="pager">
-              
-              <li class="next"><a style="background-color: skyblue" class="btn-info" href="info_entrada.php">Siguiente<span aria-hidden="true">&rarr;</span></a></li>
-            </ul>
-          </nav>
-          </div>
-    
-              
-          </fieldset>
-      </form>
-    </div>
-    
-    </div> 
-         </div> 
-     <script src="js/jquery-3.2.1.min.js"></script>
+
+
+<script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="js/frm_RegInsumos.js"></script>
@@ -264,7 +218,21 @@
     } );
 } );
   </script>
-  </body>
- </html>
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

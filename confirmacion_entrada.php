@@ -71,7 +71,7 @@
                 
                 <?php 
                   include('conectar.php');
-                  $sql_carrito = 'SELECT codigo,descripcion,cantidad,lote,fecha_vencimiento FROM carrito';
+                  $sql_carrito = 'SELECT id_carrito,codigo,descripcion,cantidad,lote,fecha_vencimiento FROM carrito';
                   $result = mysqli_query($link,$sql_carrito);
 
                   while($row_carrito=mysqli_fetch_array($result)){
@@ -86,7 +86,7 @@
                     <td><?php echo $row_carrito['lote'] ?></td>
                     <td><?php echo $row_carrito['fecha_vencimiento'] ?></td>
                     <td><?php echo $row_carrito['cantidad'] ?></td>
-                    <td><button class="btn btn-primary">Borrar</button></td>
+                    <td><button class="btn btn-primary" id="<?php echo $row_carrito['id_carrito']; ?>">Borrar</button></td>
                   </tr>
 
                 <?php } ?>
@@ -182,8 +182,14 @@
             var descripcion = $(selDesc).text();
             var cantidad = $(selCant).text()
             var codigo = $(selCode).text()
-            
-
+            swal({
+                position: 'top-center',
+                type: 'success',
+                title: 'Producto Eliminado',
+                showConfirmButton: false,
+                timer: 1500
+              });
+             
             if(clase){
               agregarDatos(clase,cantidad,descripcion);
             }
