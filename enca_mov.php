@@ -44,6 +44,15 @@
 
         <div class="col-sm-4">
           <div class="card" style="width: 20rem;">
+            <a href="vale_pedido.php"><img class="card-img-top" src="img/pedido_.png" alt="Card image cap"></a>
+            <div class="card-body">
+              <p class="card-text">Hacer pedido</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card" style="width: 20rem;">
             <a href="vale_de_medicamentos.php"><img class="card-img-top" src="img/factura.png" alt="Card image cap"></a>
             <div class="card-body">
               <p class="card-text">Requisicion de medicamentos</p>

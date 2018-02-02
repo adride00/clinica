@@ -45,6 +45,29 @@
 
             </div>
             
+            <div class="form-group">
+              <label class="control-label">Concentracion</label>
+              <input type="text"  id="concentracion" name="concentracion" class="form-control" placeholder="Concentracion">
+            </div>
+
+            <div class="form-group">
+              <label class="control-label">Presentacion</label>
+              <input type="text"  id="presentacion" name="presentacion" class="form-control" placeholder="Presentacion">
+            </div>
+
+            <div class="form-group">
+              <label class="control-label">Nivel de uso</label><br>
+              <label><input type="radio" id="radio" name="nivel" value="P"></input>  P</label> <br>
+              <label><input type="radio" id="radio" name="nivel" value="M"></input>  M</label>
+              &nbsp;&nbsp;&nbsp;<label for="radio" class="error" style="display:none;"></label>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label">Prioridad</label><br>
+              <label><input type="radio" id="radio" name="prioridad" value="E"></input>  E</label> <br>
+              <label><input type="radio" id="radio" name="prioridad" value="A"></input>  A</label>
+              &nbsp;&nbsp;&nbsp;<label for="radio" class="error" style="display:none;"></label>
+            </div>
 
               <button type="submit" class="btn btn-primary">Enviar</button> <input type="reset" class="btn btn-primary">
           </fieldset>
@@ -102,8 +125,12 @@
   $descripcion = $_POST["descripcion"];
   $um = $_POST["radio"];
   $tipo_articulo = $_POST["tipo"]; 
+  $concentracion = $_POST["concentracion"];
+  $presentacion = $_POST["presentacion"];
+  $nivel= $_POST["nivel"];
+  $prioridad = $_POST["prioridad"];
 
-  $sql_insert = "INSERT INTO articulo(codigo,descripcion,UM,tipo) VALUES('$codigo','$descripcion','$um','$tipo_articulo')";
+  $sql_insert = "INSERT INTO articulo(codigo,descripcion,UM,tipo,concentracion,presentacion,nivel_uso,prioridad) VALUES('$codigo','$descripcion','$um','$tipo_articulo','$concentracion','$presentacion','$nivel','$prioridad')";
 
   $consulta = mysqli_query($link, $sql_insert); 
   

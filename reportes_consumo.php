@@ -74,7 +74,7 @@
 
                         echo "<td>".$mostrar['tipo']."</td>";  
 
-                        echo '
+                        echo 'u
                             <td><a target="_blank" href="view_report_CD.php?id='.$mostrar[0].'"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i>
                                   </a></td>
 
